@@ -11,7 +11,6 @@ if [[ "$1" == "-t" ]]; then
   exit 0
 fi
 
-# Continue with the original script if the -t flag is not provided
 ARGS=("${@:2}")
 targets=${ARGS[*]/#/-target }
 terraform "$1" $targets
