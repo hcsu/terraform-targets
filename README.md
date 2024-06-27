@@ -7,7 +7,7 @@ Operate (plan or apply) multiple targets without `-target` subcommand.
 
 # Check if the -t flag is provided
 if [[ "$1" == "-t" ]]; then
-  terraform plan | ag 'will be' | awk -F'# ' '{print $2}' | awk -F' will be' '{print $1}' | awk '{if(NR>1)print prev " \\"; prev=$0} END {print prev}'
+  terraform plan | ag 'will be' | awk -F'# ' '{print $2}' | awk -F' will be' '{print $1}' | awk '{if(NR>1)print prev " \\"; prev="'"'"'" $0 "'"'"'"} END {print prev}'
   exit 0
 fi
 
